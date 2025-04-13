@@ -1,0 +1,52 @@
+<span class="center very-large-magin-top"></span>
+<div class="forms">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form">
+
+        <mat-form-field appearance="outline" class="text">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-icon matSuffix>email</mat-icon>
+
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+            </mat-error>
+
+            <mat-error *ngIf="email?.errors?.['email']">
+                Invalid email format
+            </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="text">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" required type="password">
+            <mat-icon matSuffix>lock</mat-icon>
+
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+            </mat-error>
+
+            <mat-error *ngIf="password?.errors?.['minlength']">
+                Password must be at least 6 characters long
+            </mat-error>
+
+        </mat-form-field>
+
+        <div class="center margin-top">
+            <button  mat-raised-button color="primary" type="submit">
+                <mat-icon>login</mat-icon>Login
+            </button>
+        </div>
+        
+        <span class="center margin-top">or</span>
+
+        <div class="center margin-top">
+            <button mat-stroked-button color="primary" matTooltip="This action will redirect you!" routerLink="/signup" type="button">
+                Sign up 
+            </button>
+        </div>
+
+    </form>
+</div>
+

@@ -1,0 +1,75 @@
+<span class="center very-large-magin-top"></span>
+<div class="forms">
+    <h1>Sign Up</h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()" class="form">
+
+        <mat-form-field appearance="outline" class="text">
+
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-icon matSuffix>name</mat-icon>
+            <mat-error *ngIf="name?.errors?.['required']">
+                Name is required
+            </mat-error>
+
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="text">
+
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+            </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="text">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" required type="password">
+            <mat-icon matSuffix>lock</mat-icon>
+
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+            </mat-error>
+
+            <mat-error *ngIf="password?.errors?.['minlength']">
+                Must be at least 6 characters
+            </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="text">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput formControlName="confirmPassword" required type="password">
+            <mat-icon matSuffix>lock</mat-icon>
+
+            <mat-error *ngIf="confirmPassword?.errors?.['required']">
+                Confirm password is required
+            </mat-error>
+
+        </mat-form-field>
+
+        <mat-error *ngIf="signUpForm?.errors?.['passwordMismatch']">
+            Passwords do not match
+        </mat-error>
+
+        <div class="center margin-top">
+            <button  mat-raised-button color="primary" type="submit">
+                <mat-icon>login</mat-icon>Sign Up
+            </button>
+        </div>
+        
+        <span class="center margin-top">or</span>
+
+        <div class="center margin-top">
+            <button mat-stroked-button color="primary" matTooltip="This action will redirect you!" routerLink="/login" type="button">
+                Log In
+            </button>
+        </div>
+
+    </form>
+</div>
+

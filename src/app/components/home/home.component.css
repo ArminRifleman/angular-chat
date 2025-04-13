@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    height: 800px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-style: bold;
+}
+
+.chats {
+    font-size: 20px;
+    width: 40%;
+    background: #444444;
+    
+}
+
+.messages {
+    width: 60%;
+    background: #525252;
+
+}
+
+.groups {
+    width: 10%;
+    background: #313131;
+}
