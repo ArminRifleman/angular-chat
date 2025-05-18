@@ -2,6 +2,15 @@
     Mayhem
 
     <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+
+      <button mat-raised-button color="primary" routerLink="/home">
+        Chats
+      </button>
+  
+      <button mat-raised-button color="primary" routerLink="/user-card">
+        Account
+      </button>
+
       <button mat-button [matMenuTriggerFor]="userMenu">
         <mat-icon>account_circle</mat-icon>
         {{ user.displayName }}
@@ -9,7 +18,7 @@
       </button>
     </ng-container>
         
-
+    
     <ng-template #loginButton>
       <button mat-button routerLink="login">
         <mat-icon>login</mat-icon>

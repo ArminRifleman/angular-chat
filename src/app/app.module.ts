@@ -11,14 +11,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 import { LandingComponent } from './components/landing/landing.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
 
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { Auth, getAuth, provideAuth } from '@angular/fire/auth';
+import { AuthGuard } from './auth/auth.guard';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { EmailShortenerPipe } from "./components/pipes/email-shortener.pipe";
+import { CapitalizePipe } from "./components/pipes/capitalize.pipe";
 
 @NgModule({
   declarations: [
@@ -26,7 +33,10 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     LandingComponent,
     SignUpComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    UserCardComponent, // Add UserCardComponent here if it is NOT standalone
+    EmailShortenerPipe,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,
@@ -38,11 +48,21 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatTooltipModule,
-    MatMenuModule
-
+    MatMenuModule,
+    MatAutocompleteModule,
+    MatCardModule
   ],
   providers: [
-    provideFirebaseApp(() => initializeApp({ projectId: "chat-d6a13", appId: "1:34558834066:web:d6cde843fe5baef0367d4b", storageBucket: "chat-d6a13.firebasestorage.app", apiKey: "AIzaSyAq1b-yVf6UnBqb8z4P4ysRy2vJ_s5EoNw", authDomain: "chat-d6a13.firebaseapp.com", messagingSenderId: "34558834066", measurementId: "G-R70PMH1NZQ" })),
+    AuthGuard,
+    provideFirebaseApp(() => initializeApp({ 
+      projectId: "chat-d6a13", 
+      appId: "1:34558834066:web:d6cde843fe5baef0367d4b", 
+      storageBucket: "chat-d6a13.firebasestorage.app", 
+      apiKey: "AIzaSyAq1b-yVf6UnBqb8z4P4ysRy2vJ_s5EoNw", 
+      authDomain: "chat-d6a13.firebaseapp.com", 
+      messagingSenderId: "34558834066", 
+      measurementId: "G-R70PMH1NZQ" 
+    })),
     provideAuth(() => getAuth())
   ],
   bootstrap: [AppComponent]

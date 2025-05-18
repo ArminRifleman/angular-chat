@@ -8,7 +8,7 @@
 
 .chats {
     font-size: 20px;
-    width: 40%;
+    width: 50%;
     background: #444444;
     
 }
@@ -22,4 +22,8 @@
 .groups {
     width: 10%;
     background: #313131;
+}
+
+.search {
+    margin: 10px;
 }

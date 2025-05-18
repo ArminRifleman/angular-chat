@@ -1,5 +1,19 @@
 <div class="container">
   <div class="groups">Groups Menu WIP</div>
-  <div class="chats">Chat Menu WIP</div>
+
+  <div class="chats">Chat Menu WIP
+    <div class="search">
+      <mat-form-field appearance="fill">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search" [formControl]="searchControl" [matAutocomplete]="users"/>
+      </mat-form-field>
+      
+    
+      <mat-autocomplete #users="matAutocomplete">
+        <mat-option>Help</mat-option>
+      </mat-autocomplete>
+    </div>
+  </div>
+
   <div class="messages">Massages</div>
 </div>
