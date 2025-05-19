@@ -1,19 +1,4 @@
 <div class="container">
-  <div class="groups">Groups Menu WIP</div>
-
-  <div class="chats">Chat Menu WIP
-    <div class="search">
-      <mat-form-field appearance="fill">
-        <mat-label>Search</mat-label>
-        <input matInput placeholder="Search" [formControl]="searchControl" [matAutocomplete]="users"/>
-      </mat-form-field>
-      
-      <mat-autocomplete #users="matAutocomplete">
-        <mat-option>Help</mat-option>
-      </mat-autocomplete>
-    </div>
-  </div>
-
   <div class="messages">
     <div class="message-list">
       <div *ngFor="let comment of comments" class="comment">
@@ -23,7 +8,7 @@
     
     <div class="comment-form">
       <mat-form-field appearance="fill" class="comment-input">
-        <mat-label>Leave a comment</mat-label>
+        <mat-label>Type something...</mat-label>
         <input matInput [formControl]="commentControl" placeholder="Type your comment...">
       </mat-form-field>
       <button mat-raised-button color="primary" (click)="addComment()">Send</button>

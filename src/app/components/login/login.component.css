@@ -8,3 +8,13 @@
 .text {
     font-size: 12px;
 }
+
+.news-box {
+  max-width: 400px;
+  margin: 2rem auto;
+  color: beige;
+}
+
+.news-box mat-card {
+  padding: 1rem;
+}
