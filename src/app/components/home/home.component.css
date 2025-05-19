@@ -10,13 +10,14 @@
     font-size: 20px;
     width: 50%;
     background: #444444;
-    
 }
 
 .messages {
     width: 60%;
     background: #525252;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .groups {
@@ -26,4 +27,28 @@
 
 .search {
     margin: 10px;
+}
+
+.message-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.comment {
+    background: #626262;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-form {
+    display: flex;
+    padding: 10px;
+    background: #444444;
+}
+
+.comment-input {
+    flex-grow: 1;
+    margin-right: 10px;
 }
